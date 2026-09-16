@@ -1,26 +1,32 @@
-```markdown
 # Riyadh Metro Ticketing & Route Management CLI
 
 ## Overview
-An interactive command-line ticketing and route management system for the Riyadh Metro network[cite: 1, 4]. The system serves two primary roles: **Passengers** who can browse lines, check operational status, view routes, calculate fares with student discounts, and checkout with exported invoices; and **Station Managers** who can manage ticket pricing tariffs and toggle line maintenance status to suspend or resume bookings[cite: 1, 2, 3, 4, 5].
+
+An interactive command-line ticketing and route management system for the **Riyadh Metro** network.
+
+The system serves two primary roles:
+
+* **Passengers** can browse metro lines, check operational status, view routes, calculate fares with student discounts, manage their cart, and checkout with an exported invoice.
+* **Station Managers** can manage ticket pricing tariffs and toggle line maintenance status to suspend or resume bookings.
 
 ---
 
 ## Features & User Stories
 
 ### As a Passenger, I should be able to:
-* Browse all available Riyadh Metro lines, terminal stations, and their current operational status (`Active` or `Maintenance`)[cite: 1, 4].
-* View detailed route descriptions for any specific line (1 to 6)[cite: 1, 4].
-* Select an active line, duration (daily, monthly, yearly), and travel class (economy, first class) to view ticket prices[cite: 1, 4].
-* Apply an eligible university student discount (50% OFF) by verifying university selection and student ID format[cite: 1, 3].
-* Add configured tickets to a personal shopping cart[cite: 1].
-* View items in the cart along with the calculated total amount[cite: 1].
-* Proceed to checkout, confirm the passenger name, and automatically export an official text invoice (`Invoice_PassengerName_timestamp.txt`)[cite: 1, 2].
+
+* **Browse all available lines:** View all lines, terminal stations, and operational status (`Active` / `Maintenance`).
+* **Check line details:** View the full route details for any specific line from 1 to 6.
+* **Book metro tickets:** Select an active line, ticket duration (`Daily`, `Monthly`, `Yearly`), and class tier (`Economy`, `First Class`).
+* **Apply student discounts:** Verify university enrollment and student ID to receive a **50% discount**.
+* **Manage cart:** Add tickets to the cart and view itemized order totals.
+* **Checkout and pay:** Confirm the passenger name and generate an official text invoice receipt.
 
 ### As a Manager, I should be able to:
-* Authenticate securely using an Admin PIN code (`4123`)[cite: 1].
-* Update ticket pricing dynamically across durations and tiers within the authorized range (4 to 5000 SAR)[cite: 5].
-* Toggle a metro line's operational status between `Active` and `Maintenance` to suspend ticket booking during track service[cite: 4].
+
+* **Authenticate securely:** Access the Manager Dashboard using an Admin PIN.
+* **Update ticket pricing:** Modify tariff prices for any duration and class tier within the allowed price range.
+* **Toggle line status:** Switch a line between `Active` and `Maintenance` to halt or resume ticket bookings.
 
 ---
 
@@ -28,17 +34,28 @@ An interactive command-line ticketing and route management system for the Riyadh
 
 ```text
 Riyadh_Metro_Project/
-├── main.py                          # Application entry point and interactive CLI menu
-├── Metro_admin_section/             # Core business logic package
+├── main.py
+├── Metro_admin_section/
 │   ├── __init__.py
-│   ├── Metro_Data.py                # Line routes, station statuses, and pricing structures
-│   ├── Adminstrative.py             # Administrative controls (pricing updates & status toggling)
-│   ├── Student_Discount.py          # Academic verification and discount processing
-│   └── Invoice.py                   # Automated file-based receipt generator
-├── requirements.txt                 # Project environment dependencies
-└── README.md                        # Documentation and project guide
-
+│   ├── Metro_Data.py
+│   ├── Adminstrative.py
+│   ├── Student_Discount.py
+│   └── Invoice.py
+├── requirements.txt
+└── README.md
 ```
+
+### File Description
+
+| File / Directory      | Description                                                                 |
+| --------------------- | --------------------------------------------------------------------------- |
+| `main.py`             | Application entry point and interactive CLI menu                            |
+| `Metro_Data.py`       | Stores metro lines, station information, statuses, and pricing              |
+| `Adminstrative.py`    | Handles administrative controls such as pricing updates and status toggling |
+| `Student_Discount.py` | Handles academic verification and student discount processing               |
+| `Invoice.py`          | Generates file-based ticket receipts                                        |
+| `requirements.txt`    | Lists project dependencies                                                  |
+| `README.md`           | Project documentation and usage guide                                       |
 
 ---
 
@@ -46,36 +63,69 @@ Riyadh_Metro_Project/
 
 ### 1. Run the Project
 
-Make sure you are in the project root directory, then run:
+Execute the entry file from the project root:
 
 ```bash
 python main.py
-
 ```
 
-### 2. Interactive Navigation
+---
 
-The application runs as an interactive menu-driven interface:
+### 2. Commands & Navigation
 
-* Enter your passenger name when prompted to personalize your session.
+After running the application, the user can navigate through the following options:
 
+| Option     | Description                                                               |
+| ---------- | ------------------------------------------------------------------------- |
+| `Start`    | Enter your name to initiate an interactive personalized session           |
+| `Option 1` | Browse all metro lines, route coverage, and operational status            |
+| `Option 2` | Inspect specific line details by line number                              |
+| `Option 3` | Book a ticket with status checking and student discount verification      |
+| `Option 4` | Review shopping cart items and complete checkout with an exported invoice |
+| `Option 5` | Access Manager Mode to update prices or toggle maintenance status         |
+| `Option 6` | Exit the CLI application safely                                           |
 
-* Type `1` to browse all lines, their full route descriptions, and active/maintenance statuses.
+---
 
+## Ticket Options
 
-* Type `2` to inspect a specific line by number (1-6).
+Passengers can select from:
 
+### Duration
 
-* Type `3` to configure and purchase a ticket (checks line status, prompts for duration, class, and optional student verification).
+* Daily
+* Monthly
+* Yearly
 
+### Class
 
-* Type `4` to review your cart summary and complete checkout with an exported invoice file.
+* Economy
+* First Class
 
+### Student Discount
 
-* Type `5` to enter Manager Mode (requires PIN: `4123`) to update tariffs or toggle maintenance mode.
+Eligible students can receive a **50% discount** after completing the required university enrollment and student ID verification.
 
+---
 
-* Type `6` to exit the CLI.
+## Manager Mode
 
+Manager Mode provides administrative functionality for managing the metro ticketing system.
 
-```
+The manager can:
+
+1. Authenticate using the Admin PIN.
+2. Update ticket prices.
+3. Change the operational status of metro lines.
+4. Set a line to `Maintenance` to temporarily prevent new bookings.
+5. Return a line to `Active` when it is operational again.
+
+---
+
+## Technologies
+
+* **Python**
+* **Command-Line Interface (CLI)**
+* **Object-Oriented / Modular Programming**
+* **File Handling**
+* **Git & GitHub**

@@ -78,9 +78,4 @@ The application runs as an interactive menu-driven interface:
 * Type `6` to exit the CLI.
 
 
-
-```
-
-```
-
 ```

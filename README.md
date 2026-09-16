@@ -1,44 +1,86 @@
-# UNIT_PROJECT
+```markdown
+# Riyadh Metro Ticketing & Route Management CLI
+
+## Overview
+An interactive command-line ticketing and route management system for the Riyadh Metro network[cite: 1, 4]. The system serves two primary roles: **Passengers** who can browse lines, check operational status, view routes, calculate fares with student discounts, and checkout with exported invoices; and **Station Managers** who can manage ticket pricing tariffs and toggle line maintenance status to suspend or resume bookings[cite: 1, 2, 3, 4, 5].
+
+---
+
+## Features & User Stories
+
+### As a Passenger, I should be able to:
+* Browse all available Riyadh Metro lines, terminal stations, and their current operational status (`Active` or `Maintenance`)[cite: 1, 4].
+* View detailed route descriptions for any specific line (1 to 6)[cite: 1, 4].
+* Select an active line, duration (daily, monthly, yearly), and travel class (economy, first class) to view ticket prices[cite: 1, 4].
+* Apply an eligible university student discount (50% OFF) by verifying university selection and student ID format[cite: 1, 3].
+* Add configured tickets to a personal shopping cart[cite: 1].
+* View items in the cart along with the calculated total amount[cite: 1].
+* Proceed to checkout, confirm the passenger name, and automatically export an official text invoice (`Invoice_PassengerName_timestamp.txt`)[cite: 1, 2].
+
+### As a Manager, I should be able to:
+* Authenticate securely using an Admin PIN code (`4123`)[cite: 1].
+* Update ticket pricing dynamically across durations and tiers within the authorized range (4 to 5000 SAR)[cite: 5].
+* Toggle a metro line's operational status between `Active` and `Maintenance` to suspend ticket booking during track service[cite: 4].
+
+---
+
+## Project Structure
+
+```text
+Riyadh_Metro_Project/
+├── main.py                          # Application entry point and interactive CLI menu
+├── Metro_admin_section/             # Core business logic package
+│   ├── __init__.py
+│   ├── Metro_Data.py                # Line routes, station statuses, and pricing structures
+│   ├── Adminstrative.py             # Administrative controls (pricing updates & status toggling)
+│   ├── Student_Discount.py          # Academic verification and discount processing
+│   └── Invoice.py                   # Automated file-based receipt generator
+├── requirements.txt                 # Project environment dependencies
+└── README.md                        # Documentation and project guide
+
+```
+
+---
+
+## Usage
+
+### 1. Run the Project
+
+Make sure you are in the project root directory, then run:
+
+```bash
+python main.py
+
+```
+
+### 2. Interactive Navigation
+
+The application runs as an interactive menu-driven interface:
+
+* Enter your passenger name when prompted to personalize your session.
 
 
-## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
+* Type `1` to browse all lines, their full route descriptions, and active/maintenance statuses.
 
-- Must be interactive on CLI.
-- Use your coding skills in Python accurately.
-- Organize Your Code into modules & (or packages)
-- Use git & Github to track changes in your code.
 
-## Example Project :  An online Grocery Store :
+* Type `2` to inspect a specific line by number (1-6).
 
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
 
-### Features & User Stories
-#### As a customer I should be able to do the following :
-- Browse  Products . 
-- View the product info (summary, specs, price, quantity , etc.)
-- Search for Products.
-- Get recommendations for my next purchase based on my purchase history.
-- Add Products to the shopping cart .
-- Remove a product from the shopping cart.
-- List the products in my shopping cart. 
-- Continue to checkout . 
-- Fill in my address for delivery.
-- Get receipt of my purchases.
-- Check delivery status . 
+* Type `3` to configure and purchase a ticket (checks line status, prompts for duration, class, and optional student verification).
+
+
+* Type `4` to review your cart summary and complete checkout with an exported invoice file.
+
+
+* Type `5` to enter Manager Mode (requires PIN: `4123`) to update tariffs or toggle maintenance mode.
+
+
+* Type `6` to exit the CLI.
 
 
 
-#### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
+```
 
+```
 
-### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
-
-### NOTE: before submitting the final project, please do the following command:
-`pip freeze > requirements.txt` to enable use to know & use the packages used in your project.
+```

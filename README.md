@@ -22,7 +22,7 @@ The system serves two primary roles:
 * **Manage cart:** Add tickets to the cart and view itemized order totals.
 * **Checkout and pay:** Confirm the passenger name and generate an official text invoice receipt.
 
-### As a Manager, I should be able to:
+### As a Admin, I should be able to:
 
 * **Authenticate securely:** Access the Manager Dashboard using an Admin PIN.
 * **Update ticket pricing:** Modify tariff prices for any duration and class tier within the allowed price range.
@@ -34,14 +34,14 @@ The system serves two primary roles:
 
 ```text
 Riyadh_Metro_Project/
-├── main.py
 ├── Metro_admin_section/
-│   ├── __init__.py
+│   ├── __pycache__
 │   ├── Metro_Data.py
 │   ├── Adminstrative.py
 │   ├── Student_Discount.py
 │   └── Invoice.py
-├── requirements.txt
+├── main.py
+├── metro_data.json
 └── README.md
 ```
 
@@ -50,11 +50,11 @@ Riyadh_Metro_Project/
 | File / Directory      | Description                                                                 |
 | --------------------- | --------------------------------------------------------------------------- |
 | `main.py`             | Application entry point and interactive CLI menu                            |
-| `Metro_Data.py`       | Stores metro lines, station information, statuses, and pricing              |
+| `Metro_Data.py`       | Loads/saves JSON data, stores metro lines, statuses, and pricing logic      |
 | `Adminstrative.py`    | Handles administrative controls such as pricing updates and status toggling |
 | `Student_Discount.py` | Handles academic verification and student discount processing               |
 | `Invoice.py`          | Generates file-based ticket receipts                                        |
-| `requirements.txt`    | Lists project dependencies                                                  |
+| `metro_data.json`     | Local JSON storage file ensuring data persistence across runs               |
 | `README.md`           | Project documentation and usage guide                                       |
 
 ---

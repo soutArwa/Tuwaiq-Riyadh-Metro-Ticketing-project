@@ -1,4 +1,4 @@
-# Riyadh Metro Ticketing & Route Management CLI
+# Riyadh Metro Ticketing & Route Management CLI 🚇
 
 ## Overview
 
